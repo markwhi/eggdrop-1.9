@@ -71,6 +71,14 @@
 	#endif
 #endif
 
+#ifndef INT_MAX
+	#ifdef HAVE_LIMITS_H
+		#include <limits.h> /* seems to be missing otherwise */
+	#else
+		#error Missing INT_MAX and limits.h -- something else might be broken!
+	#endif
+#endif
+
 #ifdef TIME_WITH_SYS_TIME
 	#include <sys/time.h>
 	#include <time.h>
